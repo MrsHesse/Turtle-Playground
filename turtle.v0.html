@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>Turtle Playground</title>
+   <meta charset="utf-8">
+   <link type="text/css" rel="stylesheet" href="turtle.css" />
+   <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto" rel="stylesheet">
+</head>
+
+<!--body onresize="resizeColumns();"> -->
+<body id="body">
+  
+  <div id="wrap">
+    <div id="container">
+    <div id="leftcolumncontainer">
+    <div id="leftcolumn">
+    <div id="referencewrapper">
+	  
+	<h4 id="referenceTitle">
+        Language Reference
+	</h4>
+	<div id="reference">
+    
+	<p><a href=""language_ref.html>Click here</a> for more detail.</p>
+	<br>
+	<b>Drawing commands</b>
+	<ul>
+         <li>forward(<em>distance</em>)</li>
+		 <li>backward(<em>distance</em>)</li>	 
+         <li>right(<em>angle</em>)</li>
+         <li>left(<em>angle</em>)</li>
+    </ul>
+	
+	<br>
+	<b>Pen commands</b>
+	<ul>
+         <li>penup()</li>
+         <li>pendown()</li>
+		 <li>pensize()</li>
+		 <li>pencolor(<em>colorname</em>)</li>
+		 <li>goto(<em>x position</em>, <em>y position</em>)</li>
+    </ul>
+
+	<br>
+	<b>Turtle commands</b>
+	<ul>
+         <li>showturtle()</li>
+         <li>hideturtle()</li>
+    </ul>
+	
+    
+	</div> <!-- reference -->
+	</div> <!-- referencewrapper -->
+	</div> <!-- leftcolumn -->
+	</div> <!-- leftcolumncontainer -->
+	
+	
+      <div id="midcolumncontainer">
+      <div id="midcolumn">
+        <h4 id=canvastitle>Canvas
+         <button id="infoButton">i</button>
+         <span class='help_text' id='infoButton_help_text'>
+           <p>
+           The <strong>i</strong> button toggles the rollover help text.
+           </p>
+         </span>
+        </h4>
+<!--
+          <canvas2 id="turtlecanvas2" width="300" height="300"></canvas2>
+          <canvas2 id="imagecanvas2" width="300" height="300" style="display:none"></canvas2>
+-->
+      <div id="canvaswrapper">
+          <canvas id="turtlecanvas"></canvas>
+          <canvas id="imagecanvas"></canvas>
+         <span class='help_text' id='turtlecanvas_help_text'>
+           <p>
+           The canvas is where the turtle graphics are drawn.
+           The turtle is the green triangle pointing in its direction of travel.
+           </p>
+         </span>
+      </div> <!-- canvaswrapper -->
+      <div id=commandwrapper> <!-- commandwrapper -->
+        <label id="commandLabel" for=#command>Command</label>
+        <input type="text" id="command" />
+         <span class='help_text' id='command_help_text'>
+           <p>
+           The Command area is where text can be entered and executed by pressing
+           the ENTER (Return) key.
+           </p>
+         </span>
+         <button id="resetButton">Reset</button>
+         <span class='help_text' id='resetButton_help_text'>
+           <p>
+           The <strong>Reset</strong> button clears the canvas and moves the turtle to its start
+           position.
+           </p>
+         </span>
+         <button id="runButton">Run Demo</button>
+         <span class='help_text' id='runButton_help_text'>
+           <p
+           The <strong>Run Demo</strong> button runs the function in the <strong>Code</strong> area named 
+           demo().
+           </p>
+         </span>
+         <button id="stopButton">Stop</button>
+         <span class='help_text' id='stopButton_help_text'>
+           <p>
+           The <strong>Stop</strong> button stops animation.
+           </p>
+         </span>
+        </div> <!-- commandwrapper -->
+      </div> <!-- midcolumn -->
+      </div> <!-- midcolumncontainer -->
+	  
+	  
+	  
+      <div id="rightcolumncontainer">
+      <div id="rightcolumn">
+      <div id="examplewrapper">
+		<h4>Executed commands</h4>
+		<textarea id="codeArea">
+        </textarea> <!-- codeArea -->
+         
+		<div id=codeButtons> <!-- codebuttons -->
+			<button id="executeCommands">Execute commands</button>
+			<button id="clearButton">Clear commands</button>
+        </div> <!-- codebuttons -->
+      </div> <!-- examplewrapper -->
+      </div> <!-- rightcolumn -->
+      </div> <!-- rightcolumncontainer -->
+   </div> <!-- container-->
+   </div> <!-- wrap-->
+
+
+<!-- scripts -->
+   <script type="text/javascript" src="turtle.js"></script>
+   <script type="text/javascript" src="turtleConsole.js"></script>
+   <script type="text/javascript" src="turtleConsoleDrag.js"></script>
+   <!-- <script type="text/javascript" src="FileSaver.min.js"></script> -->
+   <script src="he.js"></script>
+</body>
+</html>

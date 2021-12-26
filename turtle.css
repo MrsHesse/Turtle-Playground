@@ -1,0 +1,200 @@
+/**************************************************************************
+ * turtle.css -- CSS for the turtle console
+ *
+ * based on turtle.fun 2016-2019 Kirk Carlson
+ * MIT license
+ *************************************************************************/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+{
+  background-color:#FFF8FF;
+  margin:0;
+  padding:0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+#wrap {
+  height:100%;
+  margin:0 auto 0 auto;
+  position:relative;
+  top:0;
+}
+*/
+
+#container {
+  background-color:#f1f1f1;
+  height:100%;
+  overflow:auto;
+  position:absolute;
+  width:100%;
+}
+
+.leftpane {
+    width: 20%;
+    height: 100%;
+    float: left;
+    //background-color: rosybrown;
+	
+}
+
+.middlepane {
+    width: 60%;
+    height: 100%;
+    float: left;
+    //background-color: royalblue;
+}
+
+.rightpane {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  float: right;
+  //background-color: yellow;
+}  
+
+.sketchcolumn,
+.commandscolumn,
+.referencecolumn {
+	box-sizing: border-box; 
+	width: 100%;
+	height: 100%;
+	border: 2px solid black;
+}
+
+.referencecolumn{
+	padding: 10px 5px 10px 10px;
+}
+
+.commandscolumn{
+	padding: 10px 10px 10px 5px;
+}
+
+.sketchcolumn{
+	padding: 10px 5px 10px 5px;
+}
+
+	
+#sketchwrapper,
+#commandswrapper,
+#referencewrapper {
+  height:100%;
+  padding:10px;
+  width:100%;
+  z-index:1;
+}
+
+
+#referencewrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding-right:5px;
+  position:relative;
+}
+#sketchwrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-overflow-scrolling: touch;
+  padding-left:4px;
+  padding-right:7px;
+}
+#commandswrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-overflow-scrolling: touch;
+  padding-left:5px;
+}
+
+h1 {
+  margin-bottom:8px;
+  margin-top:12px;
+  position:absolute;
+  text-align:center;
+  top:0;
+  width:100%;
+}
+
+h4,
+label {
+  color:blue;
+  font-weight:bold;
+  margin: 2px 4px;
+}
+
+#reference,
+#sketcharea,
+#commandsarea {
+  box-sizing: border-box; 
+  border: lightgray 1px solid;
+  left:0;
+  padding:4px;
+  overflow:auto;
+  position:relative;
+  top:0;
+  width:100%;
+  background-color:whitesmoke;
+}
+
+
+#commandsarea textarea {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    display:block;/*reset from inline*/
+    width:100%;
+	height:400px;
+    margin:0;/*remove defaults*/
+    padding:4px;
+    background:#EEF;
+    border:1px solid #333;
+    overflow-y:auto;/*resets IE*/
+    overflow-x:hidden;/*resets IE*/
+}
+#commandlist
+{
+	height:75%;
+}
+
+#canvaswrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-overflow-scrolling: touch;
+  padding-left:4px;
+  padding-right:7px;
+}
+
+#commandwrapper {
+  margin-top:6px;
+}
+
+
+#command {
+  border: 1px solid lightgray;
+  height:20px;
+  margin:5px;
+  width:97%;
+}
+
+#command:focus {
+  border: 2px solid lightgray;
+}
+  
+#codeArea:focus {
+  border: 2px solid lightgray;
+}
+
+#turtlecanvas {
+  background:#fff;
+  border: 2px solid lightgray;
+}
+
+#imagecanvas {
+  border: 2px solid lightgray;
+  display:none;

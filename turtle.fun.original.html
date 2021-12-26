@@ -1,0 +1,874 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>Turtle Graphics</title>
+   <meta charset="utf-8">
+   <link type="text/css" rel="stylesheet" href="turtle.css" />
+   <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto" rel="stylesheet">
+</head>
+<!--body onresize="resizeColumns();"> -->
+<body id="body">
+  <a href="javascript:void(0)" id="dragbarleft"></a>
+    <span class="help_text" id="dragbarleft_help_text">
+      <p>
+      Click and drag on the drag bar to resize columns.
+      </p>
+    </span>
+  <a href="javascript:void(0)" id="dragbarright"></a>
+    <span class="help_text" id="dragbarright_help_text">
+      <p>
+      Click and drag on the drag bar to resize columns.
+      </p>
+    </span>
+  <div id="wrap">
+    <div id="container">
+    <div id="leftcolumncontainer">
+    <div id="leftcolumn">
+    <div id="referencewrapper">
+      <h4 id="referenceTitle">
+        Language Reference
+<!--
+        <button id="referenceClose">
+          <svg class="fi" viewBox="0 0 64 64">
+            <line x1="2" y1="2" x2="62" y2="62" style="stroke:rgb(0,0,0);stroke-width:8" />
+            <line x1="62" y1="2" x2="2" y2="62" style="stroke:rgb(0,0,0);stroke-width:8" />
+          </svg>
+        </button>
+-->
+<!--
+add a menu .. sort of a table of contents to jump to contents
+       <a href="#color">jump to color</a>
+also roll in the tutorial stuff
+-->
+      </h4>
+      <div id="reference">
+       <ul>
+         <li>
+           forward(<em>distance</em>) | fd(<em>distance</em>)
+           <p>
+             Move the turtle forward <em>distance</em> pixels.
+           </p>
+           <p>
+             Example: <code>forward (10)</code>
+           </p>
+         </li>
+         <li>
+           backward(<em>distance</em>) | back(<em>distance</em>) | bk(<em>distance</em>)
+           <p>
+             Move the turtle backward <em>distance</em> pixels, but leave
+             it pointing forward.
+           </p>
+           <p>
+             Example: <code>backward (10)</code>
+           </p>
+         </li>
+         <li>
+           right(<em>angle</em>) | rt(<em>angle</em>) | turn(<em>angle</em>)
+           <p>
+             Turn the turtle to the right <em>angle</em> degrees.
+           </p>
+           <p>
+             Example: <code>right (90)</code>
+           </p>
+         </li>
+         <li>
+           left(<em>angle</em>)
+           <p>
+             Turn the turtle to the left <em>angle</em> degrees.
+           </p>
+           <p>
+             Example: <code>left (90)</code>
+           </p>
+         </li>
+         <li>
+           penup() | penUp() | up() | pu()
+           <p>
+              Lift the pen in the turtle so that it does not leave a mark as
+              it moves.
+           </p>
+           <p>
+              Example: <code>penUp()</code>
+           </p>
+         </li>
+         <li>
+           pendown() | penDown() | down() | pd()
+           <p>
+             Lower the pen in the turtle so that it leaves a mark as
+             it moves.
+           </p>
+           <p>
+             Example: <code>penDown()</code>
+           </p>
+         </li>
+         <li>
+           hideturtle() | hideTurtle() | ht()
+           <p>
+             Hide the turtle. It can still draw, but it isn't shown.
+           </p>
+           <p>
+             Example: <code>hideTurtle()</code>
+           </p>
+         </li>
+         <li>
+           showturtle() | showTurtle() | st()
+           <p>
+             Show the turtle.
+           </p>
+           <p>
+             Example: <code>showTurtle()</code>
+           </p>
+         </li>
+         <li>
+           home()
+           <p>
+             Move the turtle to its home in the center
+             (x=0, y=0) and pointing toward the top (angle=0).
+           </p>
+           <p>
+             Example: <code>home()</code>
+           </p>
+         </li>
+         <li>
+           clear()
+           <p>
+             Clear the graphics area, but leave the turtle where it is.
+           </p>
+           <p>
+             Example: <code>clear()</code>
+           </p>
+         </li>
+         <li>
+           reset()
+           <p>
+             Clear the graphics area and move the turtle to its home in the center
+             (x=0, y=0) and pointing toward the top (angle=0).
+           </p>
+           <p>
+             Example: <code>reset()</code>
+           </p>
+         </li>
+         <li>
+           goto(<em>x</em>,<em>y</em>) | setposition(<em>x</em>,<em>y</em>) | setPosition(<em>x</em>,<em>y</em>) | setpos(<em>x</em>,<em>y</em>) | setPos(<em>x</em>,<em>y</em>)
+           <p>
+             Move the turtle to the coordinates <em>x</em> pixels to the
+             right of the center of the drawing area (or <em>-x</em> pixels to the
+             left of the center) and <em>y</em> pixels above the center of the drawing
+             area (or <em>-y</em> to below the center). This does not draw on the way.
+           </p>
+           <p>
+             Example: <code>goto (20,10)</code>
+           </p>
+         </li>
+         <li>
+           setx(<em>x</em>) | setX(<em>x</em>)
+           <p>
+             Move the turtle horizontally to the coordinates <em>x</em> pixels to the
+             right of the center of the drawing area (or <em>-x</em> pixels to the
+             left of the center).
+           </p>
+           <p>
+             Example: <code>setx (0)</code>
+           </p>
+         </li>
+         <li>
+           sety(<em>y</em>) | setY(<em>y</em>)
+           <p>
+             Move the turtle vertically to the coordinates <em>y</em> pixels above
+             the center of the drawing area (or <em>-y</em> to below the center).
+             This does not draw on the way.
+           </p>
+           <p>
+             Example: <code>sety (0)</code>
+           </p>
+         </li>
+         <li>
+           angle(<em>angle</em>) | setheading(<em>angle</em>) | seth(<em>angle</em>)
+           <p>
+             Turn the turtle to to the absolute <em>angle</em> relative to top
+             of the graphic area. <em>0</em> is the top, <em>0</em> is toward the top,
+             <em>90</em> is toward the right, <em>180</em> is toward the bottom, and
+             <em>270</em> <em>-90</em> is toward the left.
+           </p>
+           <p>
+             Example: <code>angle (90)</code>
+           </p>
+         </li>
+         <li>
+           width(<em>width</em>) | pensize(<em>width</em>) | penSize(<em>width</em>) | penwidth(<em>width</em>) | penWidth(<em>width</em>) | 
+           <p>
+             Change the <em>width</em> of the turtle pen (in pixels).
+           </p>
+           <p>
+             Example: <code>width(5);</code>
+           </p>
+         </li>
+         <li>
+<!--
+<a name="color"></a>
+-->
+           color(<em>colorcode</em>)
+           <p>
+             Change the color of the turtle pen. The <em>colorcode</em> may be a number
+             from 0 to 15 representing the standard turtle graphics colors.
+             <br/>
+             <button id="black">0 black</button>
+             <button id="blue">1 blue</button>
+             <button id="lime">2 lime</button>
+             <button id="cyan">3 cyan</button>
+             <button id="red">4 red</button>
+             <button id="magenta">5 magenta</button>
+             <button id="yellow">6 yellow</button>
+             <button id="white">7 white</button>
+             <button id="brown">8 brown</button>
+             <button id="tan">9 tan</button>
+             <button id="green">10 green</button>
+             <button id="aqua">11 aqua</button>
+             <button id="salmon">12 salmon</button>
+             <button id="purple">13 purple</button>
+             <button id="orange">14 orange</button>
+             <button id="gray">15 gray</button>
+           </p>
+           <p>
+             The <em>colorcode</em> may also be a quoted string with any acceptable CSS color code as in:
+           </p>
+             <ul>
+               <li>
+                 "<em>colorName</em>"
+                 where <em>colorName</em> is any of the named CSS colors.
+               </li>
+               <li>
+                 "#<em>RRGGBB</em>"
+                 where <em>RR</em>, <em>GG</em>, and <em>BB</em> is the hexidecimal
+                 amount of red, green and blue respectively.
+               </li>
+               <li>
+                 "rgb(<em>RR</em>, <em>GG</em>, <em>BB</em>)"
+                 where <em>RR</em>, <em>GG</em>, and <em>BB</em> is the decimal
+                 amount of red, green and blue respectively.
+		 Each value is between 0 and 255.
+               </li>
+               <li>
+                 "rgba(<em>RR</em>, <em>GG</em>, <em>BB</em>, <em>AA</em>)"
+                 where <em>RR</em>, <em>GG</em>, and <em>BB</em> is the decimal
+                 amount of red, green and blue respectively and
+                 <em>AA</em> is the alpha channel for transparancy between 1.0 for
+                 opaque and 0.0 for totally transparent.
+               </li>
+               <li>
+                 "hsl(<em>hue</em>, <em>saturation%</em>, <em>lightness%</em>, <em>AA</em>)"
+		 where the values are:
+		 <em>hue</em> is position on the color wheel (0 to 360),
+                 <em>saturation%</em> is the saturation percentage, and
+	         <em>lightness%</em> is the lightness percentage.
+               </li>
+               <li>
+                 "hsl(<em>hue</em>, <em>saturation%</em>, <em>lightness%</em>, <em>AA</em>)"
+		 where the values are:
+		 <em>hue</em> is position on the color wheel (0 to 360),
+                 <em>saturation%</em> is the saturation percentage,
+	         <em>lightness%</em> is the lightness percentage, and 
+                 <em>AA</em> is the alpha channel for transparancy between
+		 1.0 for opaque and 0.0 for totally transparent.
+               </li>
+             </ul> 
+           <p>
+             Example: <code>color(1)</code>
+           </p>
+           <p>
+             Example: <code>color("red")</code>
+           </p>
+           <p>
+             Example: <code>color("#ff0000")</code>
+           </p>
+           <p>
+             Example: <code>color("rbg(255,0,0)")</code>
+           </p>
+           <p>
+             Example: <code>color("rbg(255,0,0, .5)")</code>
+           </p>
+           <p>
+             Example: <code>color("hsl( 0, 100, 100")</code>
+           </p>
+           <p>
+             Example: <code>color("hsl( 0, 100, 100, .4")</code>
+           </p>
+         </li>
+         <li>
+           write(<em>string</em>)
+           <p>
+             Places the text in the <em>string</em>along the projected path of
+             the turtle. The <em>string</em> may be a set of characters enclosed by
+             single or double quotation marks. The <em>string</em> may also be a value
+             returned by a function.
+           </p>
+           <p>
+             Example: <code>write("Hello World")</code>
+           </p>
+         </li>
+         <li>
+           setfont(<em>fontName</em>) | setFont(<em>fontName</em>)
+           <p>
+             Set the characteristics (<em>style</em>, <em>variant</em>, <em>weight</em>,
+             <em>size</em>, and <em>font-family</em> desired for the font for subsequent writes.
+           </p>
+           <p>
+             Example: <code>setfont("italic small-caps bold 12px courier")</code>
+           </p>
+         </li>
+         <li>
+           curveright (<em>radius</em>[,<em>extent</em>]) | curveRight (<em>radius</em>[,<em>extent</em>])
+           <p>
+             Draw a circular curve from the turtle's postion. The
+             center of the curve is to the right of the turtle at a perpendicular
+             distance of <em>radius</em> pixels. The curve is a full circle unless
+             <em>extent</em> is provided to limit the number of degrees of arc.
+           </p>
+           <p>
+             Example: <code>curveRight(30)</code>
+           </p>
+           <p>
+             Example: <code>curveRight(10,45)</code>
+           </p>
+         </li>
+         <li>
+           curveleft (<em>radius</em>[,<em>extent</em>]) | curveLeft (<em>radius</em>[,<em>extent</em>])
+           <p>
+             Draw a circular curve from the turtle's postion. The
+             center of the curve is to the left of the turtle at a perpendicular
+             distance of <em>radius</em> pixels. The curve is a full circle unless
+             <em>extent</em> is provided to limit the number of degrees of arc.
+           </p>
+           <p>
+             Example: <code>curveLeft(20)</code>
+           </p>
+           <p>
+             Example: <code>curveLeft(10,45)</code>
+           </p>
+         </li>
+         <li>
+           circle (<em>radius</em>[[,(<em>extent</em>],(<em>CCW</em>])
+           <p>
+             Draw a circle or arc centered on the turtle's postion.  A full circle
+             is drawn unless <em>extent</em> is provided to limit the number of
+             degrees of arc. The arc is drawn clockwise unless a boolean <em>CCW</em>
+             is supplied and has a value of <em>false</em>.
+           </p>
+           <p>
+             Example: <code>circle(10)</code>
+           </p>
+           <p>
+             Example: <code>circle(20,90)</code>
+           </p>
+           <p>
+             Example: <code>circle(30,-90,false)</code>
+           </p>
+         </li>
+         <li>
+           dot ([<em>radius</em>])
+           <p>
+// radius in pixels (if none, max of pensize+4, 2*pensize)
+             Draw a filled circle centered on the turtle's postion.
+             The circle is drawn with a radius of <em>radius</em>) pixels. If
+             <em>radius</em>) is not specified, it defaults to the larger of
+             width plus 4 or twice the pensize). 
+           </p>
+           <p>
+             Example: <code>dot()</code>
+           </p>
+           <p>
+             Example: <code>dot(10)</code>
+           </p>
+         </li>
+         <li>
+           beginshape() | beginShape()
+           <p>
+              Marks the begining of a shape to be filled. The shape consists of a
+              set of line segments (forward, backward, right, left, curveright, curveleft).
+              The set should be continuous and begin and end at the same point.
+           </p>
+           <p>
+             Example: <code>beginShape()</code>
+           </p>
+         </li>
+         <li>
+           fillShape([styl])
+           <p>
+              Fills the shape begun with the last beginShape() directive.
+              The shape is filled with <em>styl</em>, which may be a logo color number,
+              a normal HTML color definition (see color above), a gradient or
+              a pattern. This defaults to the turtle color.
+           </p>
+           <p>
+             Example: <code>fillShape("blue")</code>
+           </p>
+         </li>
+         <li>
+           n = random([<em>low,</em>]<em>high</em>)
+           <p>
+             Pick a random number between <em>low</em> and <em>high</em> -1.
+             If only one value <em>high</em> is provided, pick a number between 0 and
+             <em>high</em> -1.
+           </p>
+           <p>
+             Example: <code>write(random(1,7)+ " ")</code>
+           </p>
+           <p>
+             Example: <code>write(random(6)+ " ")</code>
+           </p>
+         </li>
+         <li>
+           repeat(<em>n</em>, <em>action</em>)
+           <p>
+             Allows a function <em>action</em> or group of actions to be repeated
+             <em>n</em> times.
+           </p>
+           <p>
+             Example: <code>repeat (4, function () {forward(10);right(90)})</code>
+           </p>
+           <p>
+             Example: <code>function el () {forward(10);right(90)}; repeat (4, el)</code>
+           </p>
+         </li>
+         <li>
+           wrap(<em>bool</em>)
+           <p>
+             Turns wrapping on and off at the edges of the graphic area by setting it
+             <em>true</em> or <em>false</em> respecitively.
+           </p>
+           <p>
+             Example: <code>wrap(true)</code>
+           </p>
+           <p>
+             Example: <code>wrap(false)</code>
+           </p>
+         </li>
+         <li>
+           animate(<em>action</em>,<em>ms</em>)
+           <p>
+             Evalutes <em>action</em> every <em>ms</em> milliseconds.
+           </p>
+           <p>
+             Example: <code>animate ("forward(10)",100)</code>
+           </p>
+           <p>
+             Example: <code>animate ("forward(100);right(90);",100)</code>
+           </p>
+           <p>
+             Example: <code>function el () {forward(100);right(90)}; animate (el,100)</code>
+           </p>
+         </li>
+         <li>
+           delay(<em>action</em>,<em>ms</em>)
+           <p>
+             Evalutes <em>action</em> after a delay of <em>ms</em> milliseconds.
+           </p>
+           <p>
+             Example: <code>delay ("forward(10)",1000)</code>
+           </p>
+           <p>
+             Example: <code>delay ("forward(100);right(90);",1000)</code>
+           </p>
+           <p>
+             Example: <code>function el() {forward(100);right(90); delay (el,100)};el()</code>
+           </p>
+         </li>
+         <li>
+           redrawOnMove(<em>bool</em>)
+           <p>
+             Turn redrawing on or off by specifying the <em>bool</em> as
+             <em>true</em> or <em>false</em>.
+             <!-- Not sure that this is useful. -->
+           </p>
+           <p>
+             Example: <code>redrawOnMove(true)</code>
+           </p>
+           <p>
+             Example: <code>redrawOnMove(false)</code>
+           </p>
+         </li>
+         <li>
+           draw()
+           <p>
+             Draw the turtle and the current image.
+             <!-- Not sure that this is useful. -->
+           </p>
+           <p>
+             Example: <code>draw()</code>
+           </p>
+         </li>
+         <li>
+           n = minx() | n = minX()
+           <p>
+             Return the minimum value of x in pixels
+           </p>
+           <p>
+             Example: <code>write(minX())</code>
+           </p>
+         </li>
+         <li>
+           n = maxx() | n = maxX()
+           <p>
+             Return the maximum value of x in pixels
+           </p>
+           <p>
+             Example: <code>write(maxX())</code>
+           </p>
+         </li>
+         <li>
+           n = miny() | n = minY()
+           <p>
+             Return the minimum value of Y in pixels
+           </p>
+           <p>
+             Example: <code>write(minY())</code>
+           </p>
+         </li>
+         <li>
+           n = maxy() | n = maxY()
+           <p>
+             Return the maximum value of Y in pixels
+           </p>
+           <p>
+             Example: <code>write(maxY())</code>
+           </p>
+         </li>
+       </ul>
+      </div> <!-- reference -->
+      </div> <!-- referencewrapper -->
+      </div> <!-- leftcolumn -->
+      </div> <!-- leftcolumncontainer -->
+         <span class='help_text' id='reference_help_text'>
+           <p>
+           The language reference lists the available functions for turtle graphics.
+           </p>
+           <p>
+           Parameters are <em>italicized</em> included within parentheses '(' and ')' characters.
+           Optional parameters and separating
+           commas are enclosed withing square bracket '[' and ']' characters
+           (the square brackets should not be entered).
+           </p>
+           <p>
+           Alternative forms of
+           the functions are separated with the pipe '|' character (e.g.,
+           cat()|dog() means cat() or dog()). 
+           </p>
+           <p>
+            Examples are shown in <code>bold typewriter font</code>. Each example may be clicked
+            to immediately execute it to see what it does.
+           </p>
+         </span>
+      <div id="midcolumncontainer">
+      <div id="midcolumn">
+        <h4 id=canvastitle>Canvas
+         <button id="infoButton">i</button>
+         <span class='help_text' id='infoButton_help_text'>
+           <p>
+           The <strong>i</strong> button toggles the rollover help text.
+           </p>
+         </span>
+        </h4>
+<!--
+          <canvas2 id="turtlecanvas2" width="300" height="300"></canvas2>
+          <canvas2 id="imagecanvas2" width="300" height="300" style="display:none"></canvas2>
+-->
+      <div id="canvaswrapper">
+          <canvas id="turtlecanvas"></canvas>
+          <canvas id="imagecanvas"></canvas>
+         <span class='help_text' id='turtlecanvas_help_text'>
+           <p>
+           The canvas is where the turtle graphics are drawn.
+           The turtle is the green triangle pointing in its direction of travel.
+           </p>
+         </span>
+      </div> <!-- canvaswrapper -->
+      <div id=commandwrapper> <!-- commandwrapper -->
+        <label id="commandLabel" for=#command>Command</label>
+        <input type="text" id="command" />
+         <span class='help_text' id='command_help_text'>
+           <p>
+           The Command area is where text can be entered and executed by pressing
+           the ENTER (Return) key.
+           </p>
+         </span>
+         <button id="resetButton">Reset</button>
+         <span class='help_text' id='resetButton_help_text'>
+           <p>
+           The <strong>Reset</strong> button clears the canvas and moves the turtle to its start
+           position.
+           </p>
+         </span>
+         <button id="runButton">Run Demo</button>
+         <span class='help_text' id='runButton_help_text'>
+           <p
+           The <strong>Run Demo</strong> button runs the function in the <strong>Code</strong> area named 
+           demo().
+           </p>
+         </span>
+         <button id="stopButton">Stop</button>
+         <span class='help_text' id='stopButton_help_text'>
+           <p>
+           The <strong>Stop</strong> button stops animation.
+           </p>
+         </span>
+         <a id="saveCanvasButton">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 333.668 333.668" style="enable-background:new 0 0 333.668 333.668;" xml:space="preserve">
+<g>
+        <path d="M295.101,298.649H38.561C17.295,298.649,0,281.354,0,260.088V103.703c0-21.266,17.295-38.561,38.561-38.561h52.347
+                l4.582-15.457c1.87-8.458,9.602-14.666,18.696-14.666h105.297c8.837,0,16.658,6.176,18.728,14.743l0.122,0.527l4.177,14.852h52.597
+                c21.266,0,38.561,17.295,38.561,38.561v156.384C333.662,281.354,316.361,298.649,295.101,298.649z M38.561,77.996
+                c-14.178,0-25.707,11.53-25.707,25.707v156.384c0,14.178,11.53,25.707,25.707,25.707h256.54c14.178,0,25.707-11.53,25.707-25.707
+                V103.703c0-14.178-11.53-25.707-25.707-25.707h-62.327l-7.037-25.097c-0.649-2.918-3.278-5.032-6.26-5.032H114.179
+                c-3.027,0-5.598,2.069-6.26,5.039l-7.429,25.09H38.561z M166.841,259.798c-44.981,0-81.576-36.588-81.576-81.563
+                c0-44.981,36.594-81.569,81.576-81.569c44.969,0,81.557,36.594,81.557,81.569C248.397,223.204,211.809,259.798,166.841,259.798z
+                 M166.841,109.513c-37.893,0-68.722,30.823-68.722,68.716s30.83,68.709,68.722,68.709c37.886,0,68.703-30.823,68.703-68.709
+                C235.543,140.336,204.72,109.513,166.841,109.513z M286.804,101.852c-6.555,0-11.858,5.315-11.858,11.858
+                c0,6.549,5.302,11.857,11.858,11.857c6.549,0,11.851-5.309,11.851-11.857C298.649,107.167,293.346,101.852,286.804,101.852z"/>
+</svg>
+        </a>
+         <span class='help_text' id='saveCanvasButton_help_text'>
+           <p>
+           The <strong>Save Canvas</strong> button takes a snap shot of the canvas and saves in the browser download file with the name TurtleGraphic.png.
+           </p>
+         </span>
+         <button id="saveSVG">
+           Save SVG
+        </button>
+         <span class='help_text' id='saveCanvasButton_help_text'>
+           <p>
+           The <strong>Save Canvas</strong> button takes a snap shot of the canvas and saves in the browser download file with the name TurtleGraphic.png.
+           </p>
+         </span>
+        </div> <!-- commandwrapper -->
+      </div> <!-- midcolumn -->
+      </div> <!-- midcolumncontainer -->
+      <div id="rightcolumncontainer">
+      <div id="rightcolumn">
+      <div id="examplewrapper">
+	<h4>Code Area
+        <!-- need to change name Examples to Code Area -->
+        <!-- The select options are populated with a tool, DO NOT EDIT. -->
+        <select id=examples>
+          <option selected value=example>Examples</option>
+          <option value="arc_test">Arc and Curve Test</option>
+          <option value="basket_weave_tessellation">Basket Weave Tessellation</option>
+          <option value="bounce">Bouncing Rectangles</option>
+          <option value="brick_tessellation">Brick Tessellation</option>
+          <option value="cafe_wall_illusion">Cafe Wall Illusion</option>
+          <option value="circle_eye2">Circle Eye2</option>
+          <option value="circle_eye">Circle Eye</option>
+          <option value="clock_BCD">Clock, BCD</option>
+          <option value="clock_digital">Clock, Digital</option>
+          <option value="clock">Clock, Analog</option>
+          <option value="collidescape">Collidescape (tm)</option>
+          <option value="color_changing_dots">Color Changing Dots</option>
+          <option value="compass_rose2">Compass Rose 2</option>
+          <option value="compass_rose">Compass Rose</option>
+          <option value="compass_rose_quilt">Compass Rose Quilt</option>
+          <option value="connected_points">Connected Points</option>
+          <option value="conway_fractal">Conway Fractal</option>
+          <option value="conway_pinwheel">Conway Pinwheel</option>
+          <option value="coordinates">Coordinates</option>
+          <option value="dividing_circle">Dividing a Circle</option>
+          <option value="dodecahedron_graph">Dodecahedron Graph</option>
+          <option value="dragon_curve">Dragon Curve</option>
+          <option value="example">Example</option>
+          <option value="eye_simulator">Eye Simulator</option>
+          <option value="fibinoucci">Fibanochi sequence</option>
+          <option value="gosper_curve">Gosper Curve</option>
+          <option value="graphitti">Graphitti</option>
+          <option value="heart">Heart</option>
+          <option value="herring_bone_tessellation">Herring Bone Tessellation</option>
+          <option value="hexapentakis_truncated_icosahedron_asymmetric_full">Hexapentakis-Truncated-Icosahedron-Asymmetric full</option>
+          <option value="hexapentakis_truncated_icosahedron_symmetric_full">Hexapentakis-Truncated-Icosahedron Symmetric full</option>
+          <option value="hexapentakis_truncated_icosahedron_symmetric_half">Hexapentakis Truncated Icosahedron half</option>
+          <option value="hex_tessellation">Hexagon Tessellation</option>
+          <option value="hilbert_curve">Hilbert Curve</option>
+          <option value="hirschhorn_tiles">Hircshhorn Tiles</option>
+          <option value="home_plate_tessellation">Home Plate Tessellation</option>
+          <option value="icosahedron_graph">Icosahedron Graph</option>
+          <option value="intersection_simulator">Intersection Simulator</option>
+          <option value="jumping_jack">Jumping Jack</option>
+          <option value="koch_line">Koch Lines</option>
+          <option value="koch_snowflake2">Koch Snowflake 2</option>
+          <option value="koch_snowflake">Koch Snowflakes</option>
+          <option value="koch_triangles_stacked">Koch Snowflakes, Stacked</option>
+          <option value="life">Life</option>
+          <option value="miura_origami">Miura Origami</option>
+          <option value="mountain_tessellation">Mountain Tessellation</option>
+          <option value="naifeh_ajlun">Naifah Ajlun</option>
+          <option value="naifeh_cyrene">Naifah Cyrene</option>
+          <option value="naifeh_jeresh">Naifah Jeresh</option>
+          <option value="naifeh_mamluk">Naifeh Mamluk</option>
+          <option value="naifeh_mizen6">Naifeh Mizen Six</option>
+          <option value="naifeh_mizen">Naifeh Mizen Simple</option>
+          <option value="naifeh_petra">Naifeh Petra</option>
+          <option value="naifeh_saida_inverse">Naifeh Saida Inverse</option>
+          <option value="naifeh_saida">Naifeh Saida</option>
+          <option value="nested_hexagons">Nested Hexagons</option>
+          <option value="nested_squares">Nested Squares</option>
+          <option value="pentahex">Pentahex</option>
+          <option value="polygon">Polygon</option>
+          <option value="random_stars">Random Stars</option>
+          <option value="random_stick_men">Random Stick Men</option>
+          <option value="rhombic_star_tessellation">Rhombic Star Tessellation</option>
+          <option value="rice_penta_tessellation_1">Rice Penta Tessellation 1</option>
+          <option value="serendipitous">Serendipitous Circles</option>
+          <option value="sierpinski_curve">Sierpinski Curve</option>
+          <option value="sierpinski_triangle">Sierpinski Triangle</option>
+          <option value="simple_story">Simple Story</option>
+          <option value="sliding_block">Sliding Block Puzzle</option>
+          <option value="snowman">Snowman</option>
+          <option value="snub_icosidodecahedron">Snub Icosidodecahedron Half</option>
+          <option value="spinning_squares">Spinning Squares</option>
+          <option value="spiral">Spiral</option>
+          <option value="square_lines">Square Lines</option>
+          <option value="square_series">Square Series</option>
+          <option value="square_tessellation">Square Tessellation</option>
+          <option value="squiggle">Squiggle</option>
+          <option value="stamps">Stamps</option>
+          <option value="star_burst">Starburst</option>
+          <option value="star">Star</option>
+          <option value="stars_and_rhombuses">Stars and Rhombuses</option>
+          <option value="tree">Tree Symmetrical</option>
+          <option value="triangle_tessellation">Triangle Tesselation</option>
+          <option value="triangle_tunnel">Triangle Tunnel</option>
+          <option value="two_square_tessellation">Two Square Tessellation</option>
+          <option value="US_flag">US Flag</option>
+          <option value="wang_tiles">Wang Tiles</option>
+          <option value="waves">Waves</option>
+        </select>
+        <!-- The above select options are populated with a tool, DO NOT EDIT. -->
+        <span class='left_help_text' id='examples_help_text'>
+          <p>
+          The <strong>Examples select</strong> is used to load an example into the
+          <strong>defintions</strong> area.
+          </p>
+          <p>
+          The example can be run with the <strong>Run Demo</strong> button.
+          </p>
+        </span>
+      </h4>
+      <textarea id="codeArea">
+/* Define helper functions here
+or write your own functions
+
+For example:    */
+
+function square(side) {
+  repeat(4, function () {
+    forward(side);
+    right(90);
+  });
+}
+
+function demo() {
+  hideTurtle();
+  color("blue");
+  var s = 100;
+  while (s > 0) {
+    square(s);
+    right(36);
+    s = s - 10;
+  }
+}
+         </textarea> <!-- codeArea -->
+         <span class='left_help_text' id='codeArea_help_text'>
+           <p>
+           The code area is for the entry of multi-line programs, helper
+           functions and examples.
+           </p>
+           <p>
+           The code can be examined or modified as desired.
+           </p>
+           <p>
+           Individual functions may be executed by typing their name and
+           partheses into the
+           <strong>Command</strong> line (for example: <code>demo()</code>) and pressing ENTER or RETURN.
+           </p>
+        </span>
+      <div id=codeButtons> <!-- codebuttons -->
+        <input type="file" id="uploadFile" accept=".js,.txt"/>
+        <button id="uploadButton">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60.903 60.903" style="enable-background:new 0 0 60.903 60.903;" xml:space="preserve">
+<g>
+	<path d="M49.561,16.464H39.45v6h10.111c3.008,0,5.341,1.535,5.341,2.857v26.607c0,1.321-2.333,2.858-5.341,2.858H11.34
+		c-3.007,0-5.34-1.537-5.34-2.858V25.324c0-1.322,2.333-2.858,5.34-2.858h10.11v-6H11.34C4.981,16.466,0,20.357,0,25.324v26.605
+		c0,4.968,4.981,8.857,11.34,8.857h38.223c6.357,0,11.34-3.891,11.34-8.857V25.324C60.902,20.355,55.921,16.464,49.561,16.464z"/>
+	<path d="M39.529,29.004c-0.768,0-1.535,0.294-2.121,0.88l-3.756,3.755V20.612v-6V3.117c0-1.656-1.343-3-3-3s-3,1.344-3,3v11.494v6
+		v13.23l-3.959-3.958c-0.586-0.586-1.354-0.88-2.121-0.88s-1.535,0.294-2.121,0.88c-1.172,1.17-1.172,3.07,0,4.241l8.957,8.957
+		c0.586,0.586,1.354,0.877,2.12,0.877c0.008,0,0.016,0,0.023,0s0.015,0,0.022,0c0.768,0,1.534-0.291,2.12-0.877l8.957-8.957
+		c1.172-1.171,1.172-3.071,0-4.241C41.064,29.298,40.298,29.004,39.529,29.004z"/>
+</svg>
+        </button>
+         <span class='left_help_text' id='uploadButton_help_text'>
+           <p>
+           The <strong>Upload</strong> button opens a dialog to select a file
+           to load into the code text area.
+           </p>
+         </span>
+        <button id="downloadButton">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 67.671 67.671" style="enable-background:new 0 0 67.671 67.671;" xml:space="preserve">
+<g>
+	<path d="M52.946,23.348H42.834v6h10.112c3.007,0,5.34,1.536,5.34,2.858v26.606c0,1.322-2.333,2.858-5.34,2.858H14.724
+		c-3.007,0-5.34-1.536-5.34-2.858V32.207c0-1.322,2.333-2.858,5.34-2.858h10.11v-6h-10.11c-6.359,0-11.34,3.891-11.34,8.858v26.606
+		c0,4.968,4.981,8.858,11.34,8.858h38.223c6.358,0,11.34-3.891,11.34-8.858V32.207C64.286,27.239,59.305,23.348,52.946,23.348z"/>
+	<path d="M24.957,14.955c0.768,0,1.535-0.293,2.121-0.879l3.756-3.756v13.028v6v11.494c0,1.657,1.343,3,3,3s3-1.343,3-3V29.348v-6
+		V10.117l3.959,3.959c0.586,0.586,1.354,0.879,2.121,0.879s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242l-8.957-8.957
+		C35.492,0.291,34.725,0,33.958,0c-0.008,0-0.015,0-0.023,0s-0.015,0-0.023,0c-0.767,0-1.534,0.291-2.12,0.877l-8.957,8.957
+		c-1.172,1.171-1.172,3.071,0,4.242C23.422,14.662,24.189,14.955,24.957,14.955z"/>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+</svg>
+        </button>
+         <span class='left_help_text' id='downloadButton_help_text'>
+           <p>
+           The <strong>Download</strong> button downloads the code text
+           area to the directory designated for downloads by the browser.
+           </p>
+         </span>
+        <input type="text" id="downloadFilename" placeholder="TurtleGraphic" />.js
+         <span class='left_help_text' id='downloadFilename_help_text'>
+           <p>
+           The <strong>Download Filename</strong> text area holds the filename
+           used when downloading the code text area to the download directory.
+           </p>
+         </span>
+
+<!--
+         <button id="saveButton">Download</button>
+         <span class='left_help_text' id='saveButton_help_text'>
+           <p>
+           The <strong>Save</strong> button downloads the code in the code area to the filename in the download directory designated by the browser.
+           </p>
+         </span>
+         <input type="text" class="filename" id="code_filename" placeholder="turtleCode"/>.js</label>
+         <span class='help_text' id='code_filename_help_text'>
+           <p>
+              The <strong>Save</strong> text area accepts the name of a JavaScript file name to be saved.
+           </p>
+         </span>
+-->
+         <button id="clearButton">Clear</button>
+         <span class='left_help_text' id='clearButton_help_text'>
+           <p>
+           The <strong>Clear</strong> button clears the code text area to allow entry of new programs.
+           </p>
+         </span>
+        </div> <!-- codebuttons -->
+      </div> <!-- examplewrapper -->
+      </div> <!-- rightcolumn -->
+      </div> <!-- rightcolumncontainer -->
+   </div> <!-- container-->
+   </div> <!-- wrap-->
+
+
+<!-- scripts -->
+   <script type="text/javascript" src="examples.js"></script>
+   <script type="text/javascript" src="turtle.js"></script>
+   <script type="text/javascript" src="turtleConsole.js"></script>
+   <script type="text/javascript" src="FileSaver.min.js"></script>
+   <script src="he.js"></script>
+</body>
+</html>

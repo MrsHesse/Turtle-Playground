@@ -1,0 +1,499 @@
+/**************************************************************************
+ * turtle.css -- CSS for the turtle console
+ *
+ * copyright(c) 2016-2019 Kirk Carlson
+ * MIT license
+ *************************************************************************/
+/* bugs
+  Canvas title has clouded border
+  titles don't line up
+  would like examples and bottom controls to disappear if no room: overflow:hide
+*/
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background-color:#FFF8FF;
+  margin:0;
+  padding:0;
+}
+
+h1 {
+  margin-bottom:8px;
+  margin-top:12px;
+  position:absolute;
+  text-align:center;
+  top:0;
+  width:100%;
+}
+
+h4,
+label {
+  color:blue;
+  font-weight:bold;
+  margin: 2px 4px;
+}
+
+#canvastitle {
+  background-color:white;
+  margin: 3pt;
+}
+
+#wrap {
+  height:100%;
+  margin:0 auto 0 auto;
+  position:relative;
+  top:0;
+}
+
+#dragbarleft{
+  cursor: col-resize;
+  padding:3px;
+  position:absolute;
+  z-index:3;
+}
+#dragbarright{
+  cursor: col-resize;
+  padding:3px;
+  position:absolute;
+  z-index:3;
+}
+#container {
+  background-color:#f1f1f1;
+  bottom:0;
+  height:100%;
+  overflow:auto;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
+#leftcolumncontainer{
+  float:left;
+  height:100%;
+  width:15%;
+  z-index:1;
+}
+
+#midcolumncontainer{
+  float:left;
+  height:100%;
+  width:70%;
+  z-index:1;
+}
+
+#rightcolumncontainer {
+  float:left;
+  height:100%;
+  width:15%;
+  z-index:1;
+}
+#rightcolumn,
+#midcolumn,
+#leftcolumn {
+  height:100%;
+  width:100%;
+  z-index:1;
+}
+
+#canvas,
+#code,
+#dumbcanvas,
+#reference {
+  cursor: default;
+  height:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+  width:100%;
+  z-index:1;
+}
+#reference {
+  margin-right:6px;
+}
+
+#canvaswrapper,
+#examplewrapper,
+#referencewrapper {
+  height:100%;
+  padding:4px;
+  width:100%;
+  z-index:1;
+}
+
+#referencewrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding-right:5px;
+  position:relative;
+}
+#canvaswrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-overflow-scrolling: touch;
+  padding-left:4px;
+  padding-right:7px;
+}
+#examplewrapper {
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-overflow-scrolling: touch;
+  padding-left:5px;
+}
+
+#reference {
+  border: lightgray 1px solid;
+  left:0;
+  margin:2px 2px 2px 2px;
+  overflow:auto;
+  position:relative;
+  top:0;
+  width:100%;
+  background-color:whitesmoke;
+}
+
+#reference.open {
+  border: lightgray 1px solid;
+  display:block;
+  width:97%;
+}
+
+#reference.closed {
+  border: none;
+  display:none;
+  width:0;
+}
+
+#referenceTitle.open {
+  display:block;
+}
+
+#referenceTitle.closed {
+  display:none;
+}
+
+#referenceClose {
+  background:none;
+  border:none;
+  float:right;
+  height:25px;
+  padding:0;
+  width:25px;
+}
+
+#examples {
+  float:right;
+  font-size:90%;
+  margin-right:2px;
+  width:100px;
+}
+
+#examples.closed {
+  display:none;
+}
+
+#lefthandle:hover {
+  background-color:gray;
+  border: mediumblue 3px solid;
+}
+
+#turtlecanvas {
+  background:#fff;
+  border: 2px solid lightgray;
+}
+
+#imagecanvas {
+  border: 2px solid lightgray;
+  display:none;
+}
+
+#command, 
+#codeArea { /*input and text area */
+  background-color:whitesmoke;
+  border:1px solid lightgray;
+  font-family: Courier New,Courier,monospace;
+  height:90%;
+  resize:none;
+}
+
+#codeArea {
+  border: 1px solid lightgray;
+  left:0;
+  overflow:auto;
+  position:relative;
+  top:0;
+  width:100%;
+}
+
+#codeArea.closed {
+  display:none;
+}
+
+#commandwrapper {
+  margin-top:6px;
+}
+#command {
+  border: 1px solid lightgray;
+  height:20px;
+  margin:5px;
+  width:97%;
+}
+
+#command:focus {
+  border: 2px solid lightgray;
+}
+  
+#codeArea:focus {
+  border: 2px solid lightgray;
+}
+  
+#saveCanvasButton,
+#clearButton,
+#downloadButton,
+#resetButton,
+#runButton,
+#stopButton,
+#uploadButton {
+  background-color:whitesmoke;
+  border-radius:5px;
+  border:black solid 2px;
+  font-size:80%;
+  font-weight:bold;
+  margin:4px;
+  padding:3px;
+}
+
+#saveCanvasButton,
+#downloadButton,
+#uploadButton {
+  margin:1pt;
+  padding: 2pt 2pt;
+  width: 16pt;
+}
+
+#saveCanvasButton{
+  float:right;
+  margin-right:10pt;
+}
+
+#resetButton,
+#uploadButton {
+  margin-left:8pt;
+}
+
+#infoButton{
+  background-color:whitesmoke;
+  background-color: #ffffb3;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius:20pt;
+  border:blue solid 1pt;
+  color:blue;
+  float:right;
+  font-family: Courier New,Courier,monospace;
+  font-size:90%;
+  font-weight:800;
+  margin:right:8pt;
+  margin:top:2pt;
+  padding:0 4px 0 4pt;
+}
+
+#clearButton{
+  float:right;
+  margin: 1pt;
+  margin-right: 8pt;
+}
+
+#downloadFilename {
+  width: 70pt;
+}
+
+
+#uploadFile {
+  visibility: hidden;
+  width: 1px;
+}
+
+
+.left_help_text,
+.help_text {
+  background: #ffffb3;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: none;
+  font: normal 70% sans-serif;
+  margin-left: 5px;
+  padding: 10px;
+  position: fixed;
+  width: 210px;
+  z-index:50;
+}
+
+.left_help_text {
+  margin-right: 5px;
+}
+
+.left_help_text p,
+.help_text p {
+  margin-bottom:6px;
+  margin-top:0;
+}
+
+/* trick for pointer on help text, not working */
+.left_help_text:before,
+.left_help_text:after,
+.help_text:before,
+.help_text:after {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  content: "";
+  height: 0;
+  position: fixed;
+  top: 5px;
+  width: 0;
+}
+
+.help_text:before {
+  left: -10px;
+  border-right: 10px solid #ccc;
+}
+
+.left_help_text:before {
+  right: -10px;
+  border-left: 10px solid #ccc;
+}
+
+.help_text:after {
+  left: -9px;
+  border-right: 10px solid #ffffb3;
+}
+
+.left_help_text:after {
+  right: -9px;
+  border-left: 10px solid #ffffb3;
+}
+/* end of trick for pointer on help text, not working */
+
+#reference ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+#reference li {
+  background-color:whitesmoke;
+  list-style:none;
+  margin:0;
+  padding:5px;
+  padding-top:10px;
+}
+
+#reference li p {
+  padding-left:15pt;
+}
+
+#reference p {
+  font-size:80%;
+  margin:.5em 3em 0 1em;
+}
+
+#reference li li {
+  border:none;
+  font-size:80%;
+  list-style:square;
+  margin-left:4em;
+}
+
+#reference button {
+  border:black solid 2px;
+  color:black;
+  margin:2px;
+  padding: 2px;
+  width: 7em;
+}
+
+button#black{
+  background-color:black;
+  color:white;
+}
+
+button#blue{
+  background-color:blue;
+  color:white;
+}
+
+button#lime{
+  background-color:lime;
+}
+
+button#cyan{
+  background-color:cyan;
+}
+
+button#red{
+  background-color:red;
+}
+
+button#magenta{
+  background-color:magenta;
+}
+
+button#yellow{
+  background-color:yellow;
+}
+
+button#white{
+  background-color:white;
+}
+
+button#brown{
+  background-color:brown;
+  color:white;
+}
+
+button#tan{
+  background-color:tan;
+}
+
+button#green{
+  background-color:green;
+  color:white;
+}
+
+button#aqua{
+  background-color:aqua;
+}
+
+button#salmon{
+  background-color:salmon;
+}
+
+button#purple{
+  background-color:purple;
+  color:white;
+}
+
+button#orange{
+  background-color:orange;
+}
+
+button#gray{
+  background-color:gray;
+  color:white;
+}
+
+code {
+  font-size:120%;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+code.linked {
+  text-decoration:underline;
+}

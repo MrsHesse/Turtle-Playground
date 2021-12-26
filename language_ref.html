@@ -1,0 +1,524 @@
+<link type="text/css" rel="stylesheet" href="turtle.css" />
+<link href="https://fonts.googleapis.com/css?family=Poppins|Roboto" rel="stylesheet">
+
+
+<h4 id="referenceTitle">
+        Language Reference
+</h4>
+      <div id="reference">
+       <ul>
+         <li>
+           forward(<em>distance</em>)
+           <p>
+             Move the turtle forward <em>distance</em> pixels.
+           </p>
+           <p>
+             Example: <code>forward (10)</code>
+           </p>
+         </li>
+         <li>
+           backward(<em>distance</em>) | back(<em>distance</em>) | bk(<em>distance</em>)
+           <p>
+             Move the turtle backward <em>distance</em> pixels, but leave
+             it pointing forward.
+           </p>
+           <p>
+             Example: <code>backward (10)</code>
+           </p>
+         </li>
+         <li>
+           right(<em>angle</em>) | rt(<em>angle</em>) | turn(<em>angle</em>)
+           <p>
+             Turn the turtle to the right <em>angle</em> degrees.
+           </p>
+           <p>
+             Example: <code>right (90)</code>
+           </p>
+         </li>
+         <li>
+           left(<em>angle</em>)
+           <p>
+             Turn the turtle to the left <em>angle</em> degrees.
+           </p>
+           <p>
+             Example: <code>left (90)</code>
+           </p>
+         </li>
+         <li>
+           penup() | penUp() | up() | pu()
+           <p>
+              Lift the pen in the turtle so that it does not leave a mark as
+              it moves.
+           </p>
+           <p>
+              Example: <code>penUp()</code>
+           </p>
+         </li>
+         <li>
+           pendown() | penDown() | down() | pd()
+           <p>
+             Lower the pen in the turtle so that it leaves a mark as
+             it moves.
+           </p>
+           <p>
+             Example: <code>penDown()</code>
+           </p>
+         </li>
+         <li>
+           hideturtle() | hideTurtle() | ht()
+           <p>
+             Hide the turtle. It can still draw, but it isn't shown.
+           </p>
+           <p>
+             Example: <code>hideTurtle()</code>
+           </p>
+         </li>
+         <li>
+           showturtle() | showTurtle() | st()
+           <p>
+             Show the turtle.
+           </p>
+           <p>
+             Example: <code>showTurtle()</code>
+           </p>
+         </li>
+         <li>
+           home()
+           <p>
+             Move the turtle to its home in the center
+             (x=0, y=0) and pointing toward the top (angle=0).
+           </p>
+           <p>
+             Example: <code>home()</code>
+           </p>
+         </li>
+         <li>
+           clear()
+           <p>
+             Clear the graphics area, but leave the turtle where it is.
+           </p>
+           <p>
+             Example: <code>clear()</code>
+           </p>
+         </li>
+         <li>
+           reset()
+           <p>
+             Clear the graphics area and move the turtle to its home in the center
+             (x=0, y=0) and pointing toward the top (angle=0).
+           </p>
+           <p>
+             Example: <code>reset()</code>
+           </p>
+         </li>
+         <li>
+           goto(<em>x</em>,<em>y</em>) | setposition(<em>x</em>,<em>y</em>) | setPosition(<em>x</em>,<em>y</em>) | setpos(<em>x</em>,<em>y</em>) | setPos(<em>x</em>,<em>y</em>)
+           <p>
+             Move the turtle to the coordinates <em>x</em> pixels to the
+             right of the center of the drawing area (or <em>-x</em> pixels to the
+             left of the center) and <em>y</em> pixels above the center of the drawing
+             area (or <em>-y</em> to below the center). This does not draw on the way.
+           </p>
+           <p>
+             Example: <code>goto (20,10)</code>
+           </p>
+         </li>
+         <li>
+           setx(<em>x</em>) | setX(<em>x</em>)
+           <p>
+             Move the turtle horizontally to the coordinates <em>x</em> pixels to the
+             right of the center of the drawing area (or <em>-x</em> pixels to the
+             left of the center).
+           </p>
+           <p>
+             Example: <code>setx (0)</code>
+           </p>
+         </li>
+         <li>
+           sety(<em>y</em>) | setY(<em>y</em>)
+           <p>
+             Move the turtle vertically to the coordinates <em>y</em> pixels above
+             the center of the drawing area (or <em>-y</em> to below the center).
+             This does not draw on the way.
+           </p>
+           <p>
+             Example: <code>sety (0)</code>
+           </p>
+         </li>
+         <li>
+           angle(<em>angle</em>) | setheading(<em>angle</em>) | seth(<em>angle</em>)
+           <p>
+             Turn the turtle to to the absolute <em>angle</em> relative to top
+             of the graphic area. <em>0</em> is the top, <em>0</em> is toward the top,
+             <em>90</em> is toward the right, <em>180</em> is toward the bottom, and
+             <em>270</em> <em>-90</em> is toward the left.
+           </p>
+           <p>
+             Example: <code>angle (90)</code>
+           </p>
+         </li>
+         <li>
+           width(<em>width</em>) | pensize(<em>width</em>) | penSize(<em>width</em>) | penwidth(<em>width</em>) | penWidth(<em>width</em>) | 
+           <p>
+             Change the <em>width</em> of the turtle pen (in pixels).
+           </p>
+           <p>
+             Example: <code>width(5);</code>
+           </p>
+         </li>
+         <li>
+<!--
+<a name="color"></a>
+-->
+           color(<em>colorcode</em>)
+           <p>
+             Change the color of the turtle pen. The <em>colorcode</em> may be a number
+             from 0 to 15 representing the standard turtle graphics colors.
+             <br/>
+             <button id="black">0 black</button>
+             <button id="blue">1 blue</button>
+             <button id="lime">2 lime</button>
+             <button id="cyan">3 cyan</button>
+             <button id="red">4 red</button>
+             <button id="magenta">5 magenta</button>
+             <button id="yellow">6 yellow</button>
+             <button id="white">7 white</button>
+             <button id="brown">8 brown</button>
+             <button id="tan">9 tan</button>
+             <button id="green">10 green</button>
+             <button id="aqua">11 aqua</button>
+             <button id="salmon">12 salmon</button>
+             <button id="purple">13 purple</button>
+             <button id="orange">14 orange</button>
+             <button id="gray">15 gray</button>
+           </p>
+           <p>
+             The <em>colorcode</em> may also be a quoted string with any acceptable CSS color code as in:
+           </p>
+             <ul>
+               <li>
+                 "<em>colorName</em>"
+                 where <em>colorName</em> is any of the named CSS colors.
+               </li>
+               <li>
+                 "#<em>RRGGBB</em>"
+                 where <em>RR</em>, <em>GG</em>, and <em>BB</em> is the hexidecimal
+                 amount of red, green and blue respectively.
+               </li>
+               <li>
+                 "rgb(<em>RR</em>, <em>GG</em>, <em>BB</em>)"
+                 where <em>RR</em>, <em>GG</em>, and <em>BB</em> is the decimal
+                 amount of red, green and blue respectively.
+		 Each value is between 0 and 255.
+               </li>
+               <li>
+                 "rgba(<em>RR</em>, <em>GG</em>, <em>BB</em>, <em>AA</em>)"
+                 where <em>RR</em>, <em>GG</em>, and <em>BB</em> is the decimal
+                 amount of red, green and blue respectively and
+                 <em>AA</em> is the alpha channel for transparancy between 1.0 for
+                 opaque and 0.0 for totally transparent.
+               </li>
+               <li>
+                 "hsl(<em>hue</em>, <em>saturation%</em>, <em>lightness%</em>, <em>AA</em>)"
+		 where the values are:
+		 <em>hue</em> is position on the color wheel (0 to 360),
+                 <em>saturation%</em> is the saturation percentage, and
+	         <em>lightness%</em> is the lightness percentage.
+               </li>
+               <li>
+                 "hsl(<em>hue</em>, <em>saturation%</em>, <em>lightness%</em>, <em>AA</em>)"
+		 where the values are:
+		 <em>hue</em> is position on the color wheel (0 to 360),
+                 <em>saturation%</em> is the saturation percentage,
+	         <em>lightness%</em> is the lightness percentage, and 
+                 <em>AA</em> is the alpha channel for transparancy between
+		 1.0 for opaque and 0.0 for totally transparent.
+               </li>
+             </ul> 
+           <p>
+             Example: <code>color(1)</code>
+           </p>
+           <p>
+             Example: <code>color("red")</code>
+           </p>
+           <p>
+             Example: <code>color("#ff0000")</code>
+           </p>
+           <p>
+             Example: <code>color("rbg(255,0,0)")</code>
+           </p>
+           <p>
+             Example: <code>color("rbg(255,0,0, .5)")</code>
+           </p>
+           <p>
+             Example: <code>color("hsl( 0, 100, 100")</code>
+           </p>
+           <p>
+             Example: <code>color("hsl( 0, 100, 100, .4")</code>
+           </p>
+         </li>
+         <li>
+           write(<em>string</em>)
+           <p>
+             Places the text in the <em>string</em>along the projected path of
+             the turtle. The <em>string</em> may be a set of characters enclosed by
+             single or double quotation marks. The <em>string</em> may also be a value
+             returned by a function.
+           </p>
+           <p>
+             Example: <code>write("Hello World")</code>
+           </p>
+         </li>
+         <li>
+           setfont(<em>fontName</em>) | setFont(<em>fontName</em>)
+           <p>
+             Set the characteristics (<em>style</em>, <em>variant</em>, <em>weight</em>,
+             <em>size</em>, and <em>font-family</em> desired for the font for subsequent writes.
+           </p>
+           <p>
+             Example: <code>setfont("italic small-caps bold 12px courier")</code>
+           </p>
+         </li>
+         <li>
+           curveright (<em>radius</em>[,<em>extent</em>]) | curveRight (<em>radius</em>[,<em>extent</em>])
+           <p>
+             Draw a circular curve from the turtle's postion. The
+             center of the curve is to the right of the turtle at a perpendicular
+             distance of <em>radius</em> pixels. The curve is a full circle unless
+             <em>extent</em> is provided to limit the number of degrees of arc.
+           </p>
+           <p>
+             Example: <code>curveRight(30)</code>
+           </p>
+           <p>
+             Example: <code>curveRight(10,45)</code>
+           </p>
+         </li>
+         <li>
+           curveleft (<em>radius</em>[,<em>extent</em>]) | curveLeft (<em>radius</em>[,<em>extent</em>])
+           <p>
+             Draw a circular curve from the turtle's postion. The
+             center of the curve is to the left of the turtle at a perpendicular
+             distance of <em>radius</em> pixels. The curve is a full circle unless
+             <em>extent</em> is provided to limit the number of degrees of arc.
+           </p>
+           <p>
+             Example: <code>curveLeft(20)</code>
+           </p>
+           <p>
+             Example: <code>curveLeft(10,45)</code>
+           </p>
+         </li>
+         <li>
+           circle (<em>radius</em>[[,(<em>extent</em>],(<em>CCW</em>])
+           <p>
+             Draw a circle or arc centered on the turtle's postion.  A full circle
+             is drawn unless <em>extent</em> is provided to limit the number of
+             degrees of arc. The arc is drawn clockwise unless a boolean <em>CCW</em>
+             is supplied and has a value of <em>false</em>.
+           </p>
+           <p>
+             Example: <code>circle(10)</code>
+           </p>
+           <p>
+             Example: <code>circle(20,90)</code>
+           </p>
+           <p>
+             Example: <code>circle(30,-90,false)</code>
+           </p>
+         </li>
+         <li>
+           dot ([<em>radius</em>])
+           <p>
+// radius in pixels (if none, max of pensize+4, 2*pensize)
+             Draw a filled circle centered on the turtle's postion.
+             The circle is drawn with a radius of <em>radius</em>) pixels. If
+             <em>radius</em>) is not specified, it defaults to the larger of
+             width plus 4 or twice the pensize). 
+           </p>
+           <p>
+             Example: <code>dot()</code>
+           </p>
+           <p>
+             Example: <code>dot(10)</code>
+           </p>
+         </li>
+         <li>
+           beginshape() | beginShape()
+           <p>
+              Marks the begining of a shape to be filled. The shape consists of a
+              set of line segments (forward, backward, right, left, curveright, curveleft).
+              The set should be continuous and begin and end at the same point.
+           </p>
+           <p>
+             Example: <code>beginShape()</code>
+           </p>
+         </li>
+         <li>
+           fillShape([styl])
+           <p>
+              Fills the shape begun with the last beginShape() directive.
+              The shape is filled with <em>styl</em>, which may be a logo color number,
+              a normal HTML color definition (see color above), a gradient or
+              a pattern. This defaults to the turtle color.
+           </p>
+           <p>
+             Example: <code>fillShape("blue")</code>
+           </p>
+         </li>
+         <li>
+           n = random([<em>low,</em>]<em>high</em>)
+           <p>
+             Pick a random number between <em>low</em> and <em>high</em> -1.
+             If only one value <em>high</em> is provided, pick a number between 0 and
+             <em>high</em> -1.
+           </p>
+           <p>
+             Example: <code>write(random(1,7)+ " ")</code>
+           </p>
+           <p>
+             Example: <code>write(random(6)+ " ")</code>
+           </p>
+         </li>
+         <li>
+           repeat(<em>n</em>, <em>action</em>)
+           <p>
+             Allows a function <em>action</em> or group of actions to be repeated
+             <em>n</em> times.
+           </p>
+           <p>
+             Example: <code>repeat (4, function () {forward(10);right(90)})</code>
+           </p>
+           <p>
+             Example: <code>function el () {forward(10);right(90)}; repeat (4, el)</code>
+           </p>
+         </li>
+         <li>
+           wrap(<em>bool</em>)
+           <p>
+             Turns wrapping on and off at the edges of the graphic area by setting it
+             <em>true</em> or <em>false</em> respecitively.
+           </p>
+           <p>
+             Example: <code>wrap(true)</code>
+           </p>
+           <p>
+             Example: <code>wrap(false)</code>
+           </p>
+         </li>
+         <li>
+           animate(<em>action</em>,<em>ms</em>)
+           <p>
+             Evalutes <em>action</em> every <em>ms</em> milliseconds.
+           </p>
+           <p>
+             Example: <code>animate ("forward(10)",100)</code>
+           </p>
+           <p>
+             Example: <code>animate ("forward(100);right(90);",100)</code>
+           </p>
+           <p>
+             Example: <code>function el () {forward(100);right(90)}; animate (el,100)</code>
+           </p>
+         </li>
+         <li>
+           delay(<em>action</em>,<em>ms</em>)
+           <p>
+             Evalutes <em>action</em> after a delay of <em>ms</em> milliseconds.
+           </p>
+           <p>
+             Example: <code>delay ("forward(10)",1000)</code>
+           </p>
+           <p>
+             Example: <code>delay ("forward(100);right(90);",1000)</code>
+           </p>
+           <p>
+             Example: <code>function el() {forward(100);right(90); delay (el,100)};el()</code>
+           </p>
+         </li>
+         <li>
+           redrawOnMove(<em>bool</em>)
+           <p>
+             Turn redrawing on or off by specifying the <em>bool</em> as
+             <em>true</em> or <em>false</em>.
+             <!-- Not sure that this is useful. -->
+           </p>
+           <p>
+             Example: <code>redrawOnMove(true)</code>
+           </p>
+           <p>
+             Example: <code>redrawOnMove(false)</code>
+           </p>
+         </li>
+         <li>
+           draw()
+           <p>
+             Draw the turtle and the current image.
+             <!-- Not sure that this is useful. -->
+           </p>
+           <p>
+             Example: <code>draw()</code>
+           </p>
+         </li>
+         <li>
+           n = minx() | n = minX()
+           <p>
+             Return the minimum value of x in pixels
+           </p>
+           <p>
+             Example: <code>write(minX())</code>
+           </p>
+         </li>
+         <li>
+           n = maxx() | n = maxX()
+           <p>
+             Return the maximum value of x in pixels
+           </p>
+           <p>
+             Example: <code>write(maxX())</code>
+           </p>
+         </li>
+         <li>
+           n = miny() | n = minY()
+           <p>
+             Return the minimum value of Y in pixels
+           </p>
+           <p>
+             Example: <code>write(minY())</code>
+           </p>
+         </li>
+         <li>
+           n = maxy() | n = maxY()
+           <p>
+             Return the maximum value of Y in pixels
+           </p>
+           <p>
+             Example: <code>write(maxY())</code>
+           </p>
+         </li>
+       </ul>
+      </div> <!-- reference -->
+      
+	  
+	     <span class='help_text' id='reference_help_text'>
+           <p>
+           The language reference lists the available functions for turtle graphics.
+           </p>
+           <p>
+           Parameters are <em>italicized</em> included within parentheses '(' and ')' characters.
+           Optional parameters and separating
+           commas are enclosed withing square bracket '[' and ']' characters
+           (the square brackets should not be entered).
+           </p>
+           <p>
+           Alternative forms of
+           the functions are separated with the pipe '|' character (e.g.,
+           cat()|dog() means cat() or dog()). 
+           </p>
+           <p>
+            Examples are shown in <code>bold typewriter font</code>. Each example may be clicked
+            to immediately execute it to see what it does.
+           </p>
+         </span>
+      
+	  

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+   <title>Turtle Playground</title>
+   <meta charset="utf-8">
+   <link type="text/css" rel="stylesheet" href="turtle.css" />
+   <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto" rel="stylesheet">
+</head>
+
+
+
+<!-- ------------------------------------------------------ -->
+<!-- LEFT PANE                                            -->
+<!-- ------------------------------------------------------ -->
+<body id="body">  
+  <div id="wrap">
+    <div id="container">
+	
+	<div class="leftpane">
+		<div class="referencecolumn">
+			<div id="referencewrapper">
+				<h4>Language reference</h4>
+				<div id="reference">
+				
+	<p><a href=""language_ref.html>Click here</a> for more detail.</p>
+	<br>
+	<b>Drawing commands</b>
+	<ul>
+         <li>forward(<em>distance</em>)</li>
+		 <li>backward(<em>distance</em>)</li>	 
+         <li>right(<em>angle</em>)</li>
+         <li>left(<em>angle</em>)</li>
+    </ul>
+	
+	<br>
+	<b>Pen commands</b>
+	<ul>
+         <li>penup()</li>
+         <li>pendown()</li>
+		 <li>pensize()</li>
+		 <li>pencolor(<em>colorname</em>)</li>
+		 <li>goto(<em>x position</em>, <em>y position</em>)</li>
+    </ul>
+
+	<br>
+	<b>Turtle commands</b>
+	<ul>
+         <li>showturtle()</li>
+         <li>hideturtle()</li>
+    </ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<!-- ------------------------------------------------------ -->
+<!-- MIDDLE PANE                                            -->
+<!-- ------------------------------------------------------ -->
+		
+	<div class="middlepane">
+		<div class="sketchcolumn">
+			<div id="sketchwrapper">
+				<h4>Turtle Sketch</h4>
+				<div id="sketcharea">
+
+	<div id="canvaswrapper">
+		<canvas id="turtlecanvas"></canvas>
+		<canvas id="imagecanvas"></canvas>
+	</div> <!-- canvaswrapper -->
+
+	<div id=commandwrapper> <!-- commandwrapper -->
+		<label id="commandLabel" for=#command>Command</label>
+		<input type="text" id="command" />
+		<button id="resetButton">Reset</button>
+	</div>
+				
+				
+				
+				</div> <!-- sketcharea -->
+			</div> <!-- sketchwrapper -->
+		</div> <!-- sketchcolumn -->
+	</div> <!-- middlepane -->
+
+<!-- ------------------------------------------------------ -->
+<!-- RIGHT PANE                                            -->
+<!-- ------------------------------------------------------ -->
+
+	<div class="rightpane">
+		<div class="commandscolumn">
+			<div id="commandswrapper">
+				<h4>Commands executed</h4>
+				<div id="commandsarea">
+
+					<textarea id="commandlist"></textarea>
+					<button id="resetButton">Reset and Run </button>
+					<button id="resetButton">Just Run</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- scripts -->
+    <script type="text/javascript" src="turtle.js"></script>
+<!--    <script type="text/javascript" src="turtleConsole.js"></script> -->
+<!--    <script type="text/javascript" src="turtleConsoleDrag.js"></script> -->
+<!--    <script src="he.js"></script> -->
+</body>
+</html>
