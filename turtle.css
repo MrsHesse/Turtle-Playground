@@ -156,8 +156,9 @@ label {
     border:1px solid #333;
     overflow-y:auto;/*resets IE*/
     overflow-x:hidden;/*resets IE*/
+	resize: none;
 }
-#commandlist
+#commandslist
 {
 	height:75%;
 }
@@ -172,6 +173,10 @@ label {
 
 #commandwrapper {
   margin-top:6px;
+}
+
+#commandsbuttons button{
+	margin:5px;
 }
 
 

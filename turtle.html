@@ -61,7 +61,7 @@
 	<div class="middlepane">
 		<div class="sketchcolumn">
 			<div id="sketchwrapper">
-				<h4>Turtle Sketch</h4>
+				<h4 id = "sketchtitle">Turtle Sketch</h4>
 				<div id="sketcharea">
 
 	<div id="canvaswrapper">
@@ -71,7 +71,7 @@
 
 	<div id=commandwrapper> <!-- commandwrapper -->
 		<label id="commandLabel" for=#command>Command</label>
-		<input type="text" id="command" />
+		<input type="text" id="command" >
 		<button id="resetButton">Reset</button>
 	</div>
 				
@@ -89,12 +89,14 @@
 	<div class="rightpane">
 		<div class="commandscolumn">
 			<div id="commandswrapper">
-				<h4>Commands executed</h4>
+				<h4 id="commandstitle">Commands executed</h4>
 				<div id="commandsarea">
 
-					<textarea id="commandlist"></textarea>
-					<button id="resetButton">Reset and Run </button>
-					<button id="resetButton">Just Run</button>
+					<textarea id="commandslist"></textarea>
+					<div id="commandsbuttons">
+						<button id="runresetButton">Reset and Run </button>
+						<button id="runButton">Just Run</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -102,7 +104,7 @@
 
 <!-- scripts -->
     <script type="text/javascript" src="turtle.js"></script>
-<!--    <script type="text/javascript" src="turtleConsole.js"></script> -->
+    <script type="text/javascript" src="turtleConsole.js"></script>
 <!--    <script type="text/javascript" src="turtleConsoleDrag.js"></script> -->
 <!--    <script src="he.js"></script> -->
 </body>

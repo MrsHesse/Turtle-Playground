@@ -11,6 +11,159 @@ var helpTextActive = true;
 var errorFound = false;
 
 
+/*************************************************************************
+ * onWindowLoad -- handler for when window loads
+ *
+ * arguments:
+ *   None
+ *
+ * returns:
+ *   None
+ *************************************************************************/
+
+if (window.addEventListener) {
+    window.addEventListener("load", resizeSketchWrapper);
+	window.addEventListener("resize", resizeSketchWrapper);
+}
+
+
+/*************************************************************************
+ * resizeSketchWrapper -- resize the central column so the turtle canvas 
+ *                        is correctly sized and behaves properly.
+ *
+ * arguments:
+ *   None
+ *
+ * returns:
+ *   None
+ *************************************************************************/
+function resizeSketchWrapper() {
+    console.log("resizeSketchWrapper")
+
+
+    var w = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth; // variations for cross browser support
+
+    var h = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight; // variations for cross browser support
+
+    if (w < 12000) {
+        var overallWidth = w;
+    } else {
+        var overallWidth = 1200;
+    }
+
+    // work area height
+    var overallHeight = h /* guessed margin */;
+    var workAreaHeight = h -4 ; /* - 50 /*top displacement* / - 17 /* guessed margin? */;
+
+    if (workAreaHeight < 400) {
+        var canvasHeight = 300;
+    } else {
+        var canvasHeight = workAreaHeight - 140 /* APPROXIMATION space for controls */;
+    }
+
+    var wrapWidth = overallWidth - 2; //leftcolWidth + midcolWidth + rightcolWidth;
+
+
+    var referencewidth, refLeftPadding , dragleft, containertop, dropbarwidthleft, dropbarwidthright
+
+    var containertop = Number(getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+
+
+    /* center setup */
+	var margin = 5;
+	
+    //var sketchWrapperWidth = getStyleValue(document.getElementById("sketchwrapper"), "width").replace("px","");
+	var sketchWrapperHeight = getStyleValue(document.getElementById("sketchwrapper"), "height").replace("px","");
+	
+	var sketchAreaWidth = getStyleValue(document.getElementById("sketcharea"), "width").replace("px","");
+	//var sketchAreaHeight = getStyleValue(document.getElementById("sketcharea"), "height").replace("px","");
+	var sketchAreaLeftPadding = getStyleValue(document.getElementById("sketcharea"), "padding-left").replace("px","");
+	var sketchAreaRightPadding = getStyleValue(document.getElementById("sketcharea"), "padding-right").replace("px","");
+	var sketchAreaLeftMargin = getStyleValue(document.getElementById("sketcharea"), "margin-left").replace("px","");
+	var sketchAreaRightMargin = getStyleValue(document.getElementById("sketcharea"), "margin-right").replace("px","");
+	
+	var sketchTitleHeight = getStyleValue(document.getElementById("sketchtitle"), "height").replace("px","");
+	
+	//var canvasWidth = getStyleValue(document.getElementById("canvaswrapper"), "width").replace("px","");
+	//var canvasHeight = getStyleValue(document.getElementById("canvaswrapper"), "height").replace("px","");
+	//var canvasMargin = getStyleValue(document.getElementById("canvaswrapper"), "margin").replace("px","");
+	//var canvasPadding = getStyleValue(document.getElementById("canvaswrapper"), "padding").replace("px","");
+	
+	//var commandWidth = getStyleValue(document.getElementById("commandwrapper"), "width").replace("px","");
+	var commandHeight = getStyleValue(document.getElementById("commandwrapper"), "height").replace("px","");
+	//var commandMargin = getStyleValue(document.getElementById("commandwrapper"), "margin").replace("px","");
+	//var commandPadding = getStyleValue(document.getElementById("commandwrapper"), "padding").replace("px","");
+	
+	
+	
+	
+    var canvasHeight = sketchWrapperHeight - sketchTitleHeight - commandHeight - 50;
+    var canvasWidth  = sketchAreaWidth - 20;
+
+	console.log("sketchWrapperHeight",sketchWrapperHeight);
+	console.log("sketchAreaWidth",sketchAreaWidth);
+	console.log("sketchAreaLeftPadding",sketchAreaLeftPadding);
+	console.log("sketchAreaRightPadding",sketchAreaRightPadding);
+	console.log("commandHeight",commandHeight);
+	console.log("canvasHeight",canvasHeight);
+	console.log("canvasWidth",canvasWidth);
+	
+    /* center attribute setting */
+    imagecanvas.width = canvasWidth;
+    imagecanvas.height = canvasHeight;
+    turtlecanvas.width = canvasWidth;
+    turtlecanvas.height = canvasHeight;
+    document.getElementById("canvaswrapper").style.height = canvasHeight +8+ "px";
+    
+	console.log("==");
+	console.log("imagecanvas",imagecanvas.width, imagecanvas.height);
+	console.log("turtlecanvas",turtlecanvas.width, turtlecanvas.height);
+	
+	
+	/* organise the right column */
+    var commandsHeight = getStyleValue(document.getElementById("commandswrapper"), "height").replace("px","");
+	var commandsWidth = getStyleValue(document.getElementById("commandswrapper"), "width").replace("px","");
+	var commandsAreaWidth = getStyleValue(document.getElementById("commandsarea"), "width").replace("px","");
+	
+	
+	var commandsButtonsHeight = getStyleValue(document.getElementById("commandsbuttons"), "height").replace("px","");
+	var commandTitleHeight = getStyleValue(document.getElementById("commandstitle"), "height").replace("px","");
+	
+	var commandsTextHeight = commandsHeight-commandsButtonsHeight-commandTitleHeight-50;
+	var commandsTextWidth = commandsAreaWidth-20;
+	
+	document.getElementById("commandslist").style.height = commandsTextHeight+ "px";
+    document.getElementById("commandslist").style.width = commandsTextWidth+ "px";
+    
+	reset();
+}
+
+/*************************************************************************
+ * getStyleValue -- function
+ *
+ * arguments:
+ *   elmnt: (object) pointer to object
+ *   style: (string) name of the requested style
+ *
+ * returns:
+ *   element style (string)
+ *************************************************************************/
+
+function getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+
+
+
+
 //SUPPORT FUNCTIONS
 /************************************************************************
  * cmd -- put text into the command box
@@ -27,24 +180,8 @@ function cmd (text) {
 
 //EVENT PROCESSING FUNCTIONS
 
-/*************************************************************************
- * stopClicked -- handler for when stop button is clicked
- *
- * arguments:
- *   None
- *
- * returns:
- *   None
- *************************************************************************/
-/*
-function stopClicked() {
-    //console.log("stop clicked")
-    stopAnimation()
-}
-*/
 
 // set up command field to accept an ENTER without field modification
-
 var command = document.getElementById("command");
 if (command.addEventListener) {
     command.addEventListener("keypress", function(e) {
@@ -72,7 +209,10 @@ if (command.addEventListener) {
  *   None
  *************************************************************************/
 function resetClicked() {
-    reset()
+    reset();
+	
+	document.getElementById("commandslist").value="";
+	
 }
 
 /*************************************************************************
@@ -298,37 +438,62 @@ function examplesChanged () {
 function commandChanged () {
     var commandElem = document.getElementById("command");
     var commandText = commandElem.value;
-    var codeAreaText = document.getElementById('codeArea').value;
     errorFound = false
-    stopAnimation()
-    try {
-
-        // execute any code in the codeArea box
-        console.log("cC codeArea")
-        eval(codeAreaText);
-    } catch(e) {
-        errorFound = true
-        showError(e)
-    }
 
     // execute the code in the command box
-    if (!errorFound && ( commandText !== "demo()" ||
-                         commandText !== "demo();" ||
-                         demo !== undefined)) {
-    //same as !==demo() || ==demo(); && !==undefined
-        try {
-            console.log("cC cmd: " + commandText + ".")
-            eval(commandText);
-        } catch(e) {
-            errorFound = true
-            showError(e)
-            stopClicked()
-        } finally {
-            // clear the command box
-            commandElem.value = "";
-        }
-    }
+	try {
+		console.log("cC cmd: " + commandText + ".")
+		eval(commandText);
+		addToCommandList(commandText);
+	} catch(e) {
+		errorFound = true
+		showError(e)
+	} finally {
+		// clear the command box
+		commandElem.value = "";
+	}
 }
+
+
+
+function addToCommandList(command){
+	const commandList = document.getElementById("commandslist");
+	var text = commandList.value;
+	
+	if (text!=""){
+		text = text+"\n"+command;
+	}
+	else {
+		text = command;
+	}
+	
+	commandList.value = text;
+}
+
+function clearCommandList(){
+	document.getElementById("commandslist").value="";
+}
+
+function runCommandList(reset = true){
+	
+	if(reset){
+		reset();
+	}
+	
+	var commands = commandList.split("\n");
+	
+	commands.forEach( command => eval(commandText));
+	
+}
+
+function runNoResetCommandList(){
+	runCommandList(false);
+}
+
+
+document.getElementById("runresetButton").addEventListener("click", runCommandList);
+document.getElementById("runButton").addEventListener("click", runNoResetCommandList);
+
 
 
 /*************************************************************************
@@ -417,6 +582,6 @@ document.getElementById("resetButton").onclick=resetClicked;
 //    document.getElementById("uploadFile").click();
 //};
 
-document.getElementById("clearButton").onclick=clearClicked;
+//document.getElementById("clearButton").onclick=clearClicked;
 //document.getElementById("saveCanvasButton").onclick=saveCanvasClicked;
 

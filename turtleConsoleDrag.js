@@ -25,6 +25,8 @@ document.getElementById("body").onresize=fixDragButton;
  *   None
  *************************************************************************/
 function onWindowLoad() {
+	
+	resizeSketchWrapper();
     fixDragButton()
     // check if an example was requested in the URL
     var queryString = window.location.search; // was "?..." specified

@@ -123,7 +123,7 @@ function round( n, digits) {
     return Math.round( n * magnitude) / magnitude
 }
 
-/*
+
 
 // **** SVG VARIABLES ****
 
@@ -151,7 +151,7 @@ function svgInitialize() {
   svgYHighWater = 0
   svgYLowWater = 0
 }
-*/
+
 /*  ***SAMPLE SVG***
 
 <svg id="turtle-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">
@@ -179,7 +179,6 @@ function svgInitialize() {
 </svg>
 */
 
-/*
 
 // what calls this?
 // forward only when a path isn't already open?
@@ -274,7 +273,7 @@ function svgClose() {
   svgBlob = svgBlob + '</g>\n';
   svgBlob = svgBlob + '</svg>';
 }
-*/
+
 
 /*******************************************************************************
  * drawIf -- draw the turtle and the current image if redraw is true
